@@ -1,7 +1,7 @@
 /*
  * hasUniqueChars.c
  * 
- * TODO: replace this line with lines containing a description
+ * Jay Lebakken, Contains Methods:
  * 
  * Author: 
  */
@@ -32,8 +32,7 @@ void seeBits(unsigned long value, char *debug_text) {
 }
 
 
-// TODO: Read this carefully to see how to loop over characters of a string
-// TODO: (Remove TODOs once you have completed the task they describe)
+
 /*
  * Given an input string of chars, check for any non-printing
  * characters and print an error and exit if the string has any.
@@ -93,13 +92,34 @@ bool hasUniqueChars(char * inputStr) {
   for(i = 0; i < strlen(inputStr); i++) {
     nextChar = inputStr[i];
     // TODO: Add your code here to check nextChar, see if it is a duplicate, and update the checkBits variables
+    if(i<64){
+      unsigned long checki = 0;
+      if(!checkBitsA_z[i]){
+        checkBitsA_z=1;
+      }
+    checki[i]=1;
+    if(checkBitsA_z[i]&&checki[i]){
+      break;
+    }
+    }
+     if(i>64){
+      unsigned long checki = 0;
+        if(!checkBitsexcl_amp[i]){
+        checkBitsexcl_amp=1;
+      }
+    checki[i-64]=1;
+    if(checkBitsexcl_amp[i]&&checki[i]){
+      break;
+    }
+    }
+    
 
     // -------------------------------------------------------------
     // Below this are examples of debugging print statements you could use
     // Move/use as makes sense for you!
     // Modify to work on checkBitsexcl_amp
     // TODO: Comment out or remove when your function works correctly
-    printf("nextchar int value: %d\n", nextChar);
+    //printf("nextchar int value: %d\n", nextChar);
     char char_str[2] = "\0";
     char_str[0] = nextChar;
     strcpy(debug_str_A_z, "nextchar: ");
